@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             Pedido = new ListBox();
             Menu = new ListBox();
             button1 = new Button();
@@ -38,37 +37,42 @@
             label2 = new Label();
             lblTotal = new Label();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // Pedido
             // 
-            Pedido.BackColor = Color.Honeydew;
+            Pedido.BackColor = Color.Black;
             Pedido.Font = new Font("Century Schoolbook", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Pedido.ForeColor = Color.FromArgb(230, 255, 0);
             Pedido.FormattingEnabled = true;
             Pedido.ItemHeight = 25;
-            Pedido.Location = new Point(753, 200);
+            Pedido.Location = new Point(734, 135);
             Pedido.Name = "Pedido";
-            Pedido.Size = new Size(316, 154);
+            Pedido.Size = new Size(316, 254);
             Pedido.TabIndex = 0;
             // 
             // Menu
             // 
-            Menu.BackColor = Color.Honeydew;
+            Menu.BackColor = Color.Black;
             Menu.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Menu.ForeColor = Color.FromArgb(230, 255, 0);
             Menu.FormattingEnabled = true;
             Menu.ItemHeight = 24;
             Menu.Items.AddRange(new object[] { "" });
-            Menu.Location = new Point(29, 200);
+            Menu.Location = new Point(51, 121);
             Menu.Name = "Menu";
-            Menu.Size = new Size(304, 172);
+            Menu.Size = new Size(304, 268);
             Menu.TabIndex = 1;
             Menu.SelectedIndexChanged += Menu_SelectedIndexChanged;
             // 
             // button1
             // 
-            button1.BackColor = Color.Honeydew;
+            button1.BackColor = Color.Black;
             button1.Font = new Font("Century Schoolbook", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.FromArgb(230, 255, 0);
             button1.Location = new Point(216, 413);
             button1.Name = "button1";
             button1.Size = new Size(348, 49);
@@ -79,8 +83,9 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.Honeydew;
+            button2.BackColor = Color.Black;
             button2.Font = new Font("Century Schoolbook", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.FromArgb(230, 255, 0);
             button2.Location = new Point(619, 413);
             button2.Name = "button2";
             button2.Size = new Size(348, 49);
@@ -92,8 +97,9 @@
             // lblMostradorDeTotal
             // 
             lblMostradorDeTotal.AutoSize = true;
-            lblMostradorDeTotal.BackColor = Color.Honeydew;
+            lblMostradorDeTotal.BackColor = Color.Black;
             lblMostradorDeTotal.Font = new Font("Century Schoolbook", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMostradorDeTotal.ForeColor = Color.FromArgb(230, 255, 0);
             lblMostradorDeTotal.Location = new Point(346, 504);
             lblMostradorDeTotal.Name = "lblMostradorDeTotal";
             lblMostradorDeTotal.Size = new Size(218, 55);
@@ -103,8 +109,9 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.Honeydew;
+            button3.BackColor = Color.Black;
             button3.Font = new Font("Century Schoolbook", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(230, 255, 0);
             button3.Location = new Point(428, 267);
             button3.Name = "button3";
             button3.Size = new Size(262, 49);
@@ -137,22 +144,33 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.DarkKhaki;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(583, -49);
+            pictureBox1.Image = Properties.Resources.bolt_logo;
+            pictureBox1.Location = new Point(753, -33);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(530, 758);
+            pictureBox1.Size = new Size(360, 154);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.raio;
+            pictureBox2.Location = new Point(-34, -52);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(976, 697);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 10;
+            pictureBox2.TabStop = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkSeaGreen;
+            BackColor = Color.FromArgb(230, 255, 0);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1105, 672);
+            ClientSize = new Size(1105, 643);
+            Controls.Add(pictureBox1);
             Controls.Add(lblTotal);
             Controls.Add(label2);
             Controls.Add(button3);
@@ -161,12 +179,13 @@
             Controls.Add(button1);
             Controls.Add(Menu);
             Controls.Add(Pedido);
-            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             Font = new Font("Times New Roman", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "Form1";
             Text = "Cantina";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,5 +201,6 @@
         private Label label2;
         private Label lblTotal;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

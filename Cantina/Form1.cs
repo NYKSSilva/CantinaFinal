@@ -20,7 +20,7 @@ namespace Cantina
             Menu.Items.Add(new Itens { Nome = "Refrigerante - R$ 4,00", Valor = 4.00 });
             Menu.Items.Add(new Itens { Nome = "Suco - R$ 3,00", Valor = 3.00 });
             Menu.Items.Add(new Itens { Nome = "Brigadeiro - R$ 2,00", Valor = 2.00 });
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace Cantina
         {
             if (Pedido.SelectedItem != null)
             {
-                MessageBox.Show("SLELECiONE AlGO");
+                MessageBox.Show("SELECIONE AlGO");
             }
             else
             {
@@ -88,6 +88,11 @@ namespace Cantina
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
