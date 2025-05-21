@@ -14,13 +14,21 @@ namespace Cantina
             Menu.ValueMember = "Valor";
             Pedido.DisplayMember = "Nome";
             Pedido.ValueMember = "Valor";
+            Pedido.DisplayMember = "ToString";
 
-            Menu.Items.Add(new Itens { Nome = "Coxinha - R$ 5,00", Valor = 5.00 });
-            Menu.Items.Add(new Itens { Nome = "Pastel - R$ 6,00", Valor = 6.00 });
-            Menu.Items.Add(new Itens { Nome = "Refrigerante - R$ 4,00", Valor = 4.00 });
-            Menu.Items.Add(new Itens { Nome = "Suco - R$ 3,00", Valor = 3.00 });
-            Menu.Items.Add(new Itens { Nome = "Brigadeiro - R$ 2,00", Valor = 2.00 });
+            Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50 });
+            Menu.Items.Add(new Itens { Nome = "Coxinha ", Valor = 5.00 });
+            Menu.Items.Add(new Itens { Nome = "Pastel de Carne ", Valor = 6.00 });
+            Menu.Items.Add(new Itens { Nome = "Pastel de Queijo ", Valor = 5.50 });
+            Menu.Items.Add(new Itens { Nome = "Suco Natural(300ml) ", Valor = 4.00 });
+            Menu.Items.Add(new Itens { Nome = "Refrigerante Lata ", Valor = 4.50 });
+            Menu.Items.Add(new Itens { Nome = "Hamburúrguer Simples ", Valor = 8.00 });
+            Menu.Items.Add(new Itens { Nome = "Hamburúrguer com Queijo ", Valor = 9.00 });
+            Menu.Items.Add(new Itens { Nome = " X-Tudo ", Valor = 12.00 });
+            Menu.Items.Add(new Itens { Nome = "Agua Mineral(500ml) ", Valor = 2.50 });
 
+            //btnQuantidade.Minimum = 1;
+            //btnQuantidade.Maximum = 10;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,16 +40,33 @@ namespace Cantina
         {
             if (Menu.SelectedItem != null)
             {
-                Pedido.Items.Add(Menu.SelectedItem);
+                if (Menu.SelectedItem is Itens itemSelecionado)
+                {
+                    if (int.TryParse(Quantidadebtn.Text, out int quantidade) && quantidade > 0)
+                    {
 
-                Itens Item = (Itens)Menu.SelectedItem;
+                        Itens itemPedido = new Itens
+                        {
+                            Nome = itemSelecionado.Nome,
+                            Valor = itemSelecionado.Valor,
+                            Quantidade = quantidade
+                        };
 
-                total += Item.Valor;
-                lblTotal.Text = total.ToString("F2");
-            }
-            else
-            {
-                MessageBox.Show("Pedido inválido.");
+                        Pedido.Items.Add(itemPedido);
+                        total += itemPedido.Valor * itemPedido.Quantidade;
+                        lblTotal.Text = total.ToString("F2");
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Quantidade inválida.");
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Ação inválida. Selecione um item da lista.");
+                }
             }
         }
 
@@ -52,14 +77,14 @@ namespace Cantina
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Pedido.SelectedItem != null)
+            if (Pedido != null)
             {
-                Itens Item = (Itens)Pedido.SelectedItem;
-
-                total -= Item.Valor;
-                lblTotal.Text = total.ToString("F2");
-
-                Pedido.Items.Remove(Pedido.SelectedItem);
+                if (Pedido.SelectedItem is Itens itemRemovido)
+                {
+                    total -= itemRemovido.Valor * itemRemovido.Quantidade;
+                    Pedido.Items.Remove(itemRemovido);
+                    lblTotal.Text = total.ToString("F2");
+                }
             }
             else
             {
@@ -74,9 +99,9 @@ namespace Cantina
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Pedido.SelectedItem != null)
+            if (Pedido.Items.Count == 0)
             {
-                MessageBox.Show("SELECIONE AlGO");
+                MessageBox.Show("SELECIONE AlGUM ITEM");
             }
             else
             {
@@ -93,6 +118,31 @@ namespace Cantina
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnQuantidade_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Quantidade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pedido_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
