@@ -12,7 +12,7 @@ namespace Cantina
     public class Itens
     {
         public string Nome { get; set; }
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
 
         //public double total => Valor * Quantidade;
         public int Quantidade { get; set; }

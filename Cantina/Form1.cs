@@ -1,12 +1,13 @@
 using System.Numerics;
+using Microsoft.VisualBasic;
 
 namespace Cantina
 {
-    public partial class Form1 : Form
+    public partial class forms : Form
     {
-        double total = 0;
+        decimal total = 0;
 
-        public Form1()
+        public forms()
         {
             InitializeComponent();
 
@@ -16,24 +17,24 @@ namespace Cantina
             Pedido.ValueMember = "Valor";
             Pedido.DisplayMember = "ToString";
 
-            Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50 });
-            Menu.Items.Add(new Itens { Nome = "Coxinha ", Valor = 5.00 });
-            Menu.Items.Add(new Itens { Nome = "Pastel de Carne ", Valor = 6.00 });
-            Menu.Items.Add(new Itens { Nome = "Pastel de Queijo ", Valor = 5.50 });
-            Menu.Items.Add(new Itens { Nome = "Suco Natural(300ml) ", Valor = 4.00 });
-            Menu.Items.Add(new Itens { Nome = "Refrigerante Lata ", Valor = 4.50 });
-            Menu.Items.Add(new Itens { Nome = "Hamburúrguer Simples ", Valor = 8.00 });
-            Menu.Items.Add(new Itens { Nome = "Hamburúrguer com Queijo ", Valor = 9.00 });
-            Menu.Items.Add(new Itens { Nome = " X-Tudo ", Valor = 12.00 });
-            Menu.Items.Add(new Itens { Nome = "Agua Mineral(500ml) ", Valor = 2.50 });
+            Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50m });
+            Menu.Items.Add(new Itens { Nome = "Coxinha ", Valor = 5.00m });
+            Menu.Items.Add(new Itens { Nome = "Pastel de Carne ", Valor = 6.00m });
+            Menu.Items.Add(new Itens { Nome = "Pastel de Queijo ", Valor = 5.50m });
+            Menu.Items.Add(new Itens { Nome = "Suco Natural(300ml) ", Valor = 4.00m });
+            Menu.Items.Add(new Itens { Nome = "Refrigerante Lata ", Valor = 4.50m });
+            Menu.Items.Add(new Itens { Nome = "Hamburúrguer Simples ", Valor = 8.00m });
+            Menu.Items.Add(new Itens { Nome = "Hamburúrguer com Queijo ", Valor = 9.00m });
+            Menu.Items.Add(new Itens { Nome = " X-Tudo ", Valor = 12.00m });
+            Menu.Items.Add(new Itens { Nome = "Agua Mineral(500ml) ", Valor = 2.50m });
 
-            //btnQuantidade.Minimum = 1;
-            //btnQuantidade.Maximum = 10;
+            //Quantidadebtn. = ;
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Form1.ActiveForm.Close();
+            forms.ActiveForm.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,7 +43,8 @@ namespace Cantina
             {
                 if (Menu.SelectedItem is Itens itemSelecionado)
                 {
-                    if (int.TryParse(Quantidadebtn.Text, out int quantidade) && quantidade > 0)
+
+                    if (int.TryParse(Quantidadebtn.Text, out int quantidade) && quantidade >0)
                     {
 
                         Itens itemPedido = new Itens
@@ -55,6 +57,7 @@ namespace Cantina
                         Pedido.Items.Add(itemPedido);
                         total += itemPedido.Valor * itemPedido.Quantidade;
                         lblTotal.Text = total.ToString("F2");
+                        Quantidadebtn.Text = string.Empty;
                     }
 
                     else
@@ -84,6 +87,7 @@ namespace Cantina
                     total -= itemRemovido.Valor * itemRemovido.Quantidade;
                     Pedido.Items.Remove(itemRemovido);
                     lblTotal.Text = total.ToString("F2");
+                    
                 }
             }
             else
@@ -99,19 +103,93 @@ namespace Cantina
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Pedido.Items.Count == 0)
+            string pagamento = comboBox1.SelectedItem as string;
+            string Cliente = NomeCliente.Text;
+            if (string.IsNullOrEmpty(Cliente))
             {
-                MessageBox.Show("SELECIONE AlGUM ITEM");
+                MessageBox.Show("Insira o nome do cliente");
+
             }
             else
             {
-                Pedido.Items.Clear();
-                MessageBox.Show("Seu Total = R$" + total.ToString("F2"));
-                total = 0;
-                lblTotal.Text = total.ToString("F2");
+                if ((Pedido.Items.Count == 0) && string.IsNullOrEmpty(pagamento))
+                {
+                    MessageBox.Show("AÇÃO INDISPONIVEL, ESCOLHA UM METODO DE PAGAMENTO!");
+                }
+                 
+                if (pagamento == "Dinheiro")
+                {
+                    string Viagem = CheckBox.Checked ? "Sim" : "Não";
+                    string escolha = Interaction.InputBox("Valor pago: ", $"Valor a ser pago: {total}");
+                    decimal valorPago = decimal.Parse(escolha);
+                    if (valorPago < total)
+                    {
+                        MessageBox.Show("Valor insuficiente");
+                        return;
+                    }
+                    
+                    if (valorPago > total)
+                    {
+                        decimal troco = valorPago - total;
+                        MessageBox.Show($"Seu troco = {troco}");
+                        MessageBox.Show($"""
+                        
+                        Nome do do Cliente: {Cliente} 
+                        Total: {total}
+                        Forma de pagamento:{pagamento} 
+                        Valor Pago: {valorPago}
+                        Para Viagem? 
+                        Compra aprovada, obrigado pela preferencia, {Cliente}
+                        
+                        """);
+                        Pedido.Items.Clear();
+                        NomeCliente.Clear();
+                        total = 0;
+                        lblTotal.Text = total.ToString("F2");
+                        comboBox1.SelectedIndex = -1;
+                    }
+                    else 
+                    {
+                        MessageBox.Show($"""
+                        
+                        Nome do do Cliente: {Cliente} 
+                        Total: {total}
+                        Forma de pagamento:{pagamento} 
+
+                        Compra aprovada, obrigado pela preferencia, {Cliente}
+                        
+                        """);
+                        Pedido.Items.Clear();
+                        NomeCliente.Clear();
+                        total = 0;
+                        lblTotal.Text = total.ToString("F2");
+                        comboBox1.SelectedIndex = -1;
+                    }
+                }
+
+
+                else
+                {
+                    Pedido.Items.Clear();
+                    MessageBox.Show("Seu Total = R$" + total.ToString("F2"));
+                    MessageBox.Show($"""
+                        
+                        Nome do do Cliente: {Cliente} 
+                        Total: {total}
+                        Forma de pagamento:{pagamento} 
+
+                        Compra aprovada, obrigado pela preferencia, {Cliente}
+                        
+                        """);
+                    total = 0;
+                    lblTotal.Text = total.ToString("F2");
+                    comboBox1.SelectedIndex = -1;
+                    Pedido.Items.Clear();
+                    NomeCliente.Clear();
+
+                }
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -146,5 +224,10 @@ namespace Cantina
         {
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
     }
 }
