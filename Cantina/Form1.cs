@@ -27,9 +27,6 @@ namespace Cantina
             Menu.Items.Add(new Itens { Nome = "Hamburúrguer com Queijo ", Valor = 9.00m });
             Menu.Items.Add(new Itens { Nome = " X-Tudo ", Valor = 12.00m });
             Menu.Items.Add(new Itens { Nome = "Agua Mineral(500ml) ", Valor = 2.50m });
-
-            //Quantidadebtn. = ;
-            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -44,7 +41,7 @@ namespace Cantina
                 if (Menu.SelectedItem is Itens itemSelecionado)
                 {
 
-                    if (int.TryParse(Quantidadebtn.Text, out int quantidade) && quantidade >0)
+                    if (int.TryParse(Quantidadebtn.Text, out int quantidade) && quantidade >=1)
                     {
 
                         Itens itemPedido = new Itens
@@ -57,7 +54,7 @@ namespace Cantina
                         Pedido.Items.Add(itemPedido);
                         total += itemPedido.Valor * itemPedido.Quantidade;
                         lblTotal.Text = total.ToString("F2");
-                        Quantidadebtn.Text = string.Empty;
+                        Quantidadebtn.Text = "1";
                     }
 
                     else
@@ -103,6 +100,7 @@ namespace Cantina
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string Viagem = CheckBox.Checked ? "Sim" : "Não";
             string pagamento = comboBox1.SelectedItem as string;
             string Cliente = NomeCliente.Text;
             if (string.IsNullOrEmpty(Cliente))
@@ -119,7 +117,6 @@ namespace Cantina
                  
                 if (pagamento == "Dinheiro")
                 {
-                    string Viagem = CheckBox.Checked ? "Sim" : "Não";
                     string escolha = Interaction.InputBox("Valor pago: ", $"Valor a ser pago: {total}");
                     decimal valorPago = decimal.Parse(escolha);
                     if (valorPago < total)
@@ -128,8 +125,10 @@ namespace Cantina
                         return;
                     }
                     
+
                     if (valorPago > total)
                     {
+
                         decimal troco = valorPago - total;
                         MessageBox.Show($"Seu troco = {troco}");
                         MessageBox.Show($"""
@@ -138,7 +137,7 @@ namespace Cantina
                         Total: {total}
                         Forma de pagamento:{pagamento} 
                         Valor Pago: {valorPago}
-                        Para Viagem? 
+                        Para Viagem? {Viagem}
                         Compra aprovada, obrigado pela preferencia, {Cliente}
                         
                         """);
@@ -155,7 +154,8 @@ namespace Cantina
                         Nome do do Cliente: {Cliente} 
                         Total: {total}
                         Forma de pagamento:{pagamento} 
-
+                        Valor Pago: {valorPago}
+                        Para Viagem? {Viagem}
                         Compra aprovada, obrigado pela preferencia, {Cliente}
                         
                         """);
@@ -177,7 +177,7 @@ namespace Cantina
                         Nome do do Cliente: {Cliente} 
                         Total: {total}
                         Forma de pagamento:{pagamento} 
-
+                        Para Viagem? {Viagem}
                         Compra aprovada, obrigado pela preferencia, {Cliente}
                         
                         """);
