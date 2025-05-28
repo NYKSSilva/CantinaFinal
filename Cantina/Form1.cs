@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualBasic;
 
 namespace Cantina
@@ -50,7 +51,7 @@ namespace Cantina
                             Valor = itemSelecionado.Valor,
                             Quantidade = quantidade
                         };
-
+                       
                         Pedido.Items.Add(itemPedido);
                         total += itemPedido.Valor * itemPedido.Quantidade;
                         lblTotal.Text = total.ToString("F2");
@@ -103,6 +104,7 @@ namespace Cantina
             string Viagem = CheckBox.Checked ? "Sim" : "Não";
             string pagamento = comboBox1.SelectedItem as string;
             string Cliente = NomeCliente.Text;
+           
             if (string.IsNullOrEmpty(Cliente))
             {
                 MessageBox.Show("Insira o nome do cliente");
@@ -139,7 +141,7 @@ namespace Cantina
                         Valor Pago: {valorPago}
                         Para Viagem? {Viagem}
                         Compra aprovada, obrigado pela preferencia, {Cliente}
-                        
+                        Pedido:
                         """);
                         Pedido.Items.Clear();
                         NomeCliente.Clear();

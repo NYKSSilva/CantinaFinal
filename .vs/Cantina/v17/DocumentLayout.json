@@ -7,8 +7,20 @@
       "RelativeMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|solutionrelative:cantina\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|c:\\users\\25163127\\source\\repos\\cantina\\cantina\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|solutionrelative:cantina\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|C:\\Users\\25163127\\source\\repos\\Cantina\\cantina\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|solutionrelative:cantina\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|c:\\users\\25163127\\source\\repos\\cantina\\cantina\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|solutionrelative:cantina\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|c:\\users\\25163127\\source\\repos\\cantina\\cantina\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|solutionrelative:cantina\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13A897D7-8320-452A-B6D5-2B0073750656}|Cantina\\Cantina.csproj|c:\\users\\25163127\\source\\repos\\cantina\\cantina\\itens.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,16 +38,17 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Itens.cs",
               "DocumentMoniker": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Itens.cs",
               "RelativeDocumentMoniker": "Cantina\\Itens.cs",
               "ToolTip": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Itens.cs",
               "RelativeToolTip": "Cantina\\Itens.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T13:08:12.881Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -45,7 +58,7 @@
               "RelativeDocumentMoniker": "Cantina\\Form1.cs",
               "ToolTip": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Form1.cs",
               "RelativeToolTip": "Cantina\\Form1.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAgwLMAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAYwDMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T11:09:22.369Z",
               "IsPinned": true,
@@ -58,6 +71,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Pedido.cs",
+              "RelativeDocumentMoniker": "Cantina\\Pedido.cs",
+              "ToolTip": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Pedido.cs",
+              "RelativeToolTip": "Cantina\\Pedido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T13:28:16.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Form1.cs",
               "RelativeDocumentMoniker": "Cantina\\Form1.cs",
@@ -65,6 +91,31 @@
               "RelativeToolTip": "Cantina\\Form1.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T11:09:15.077Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Form2.cs",
+              "RelativeDocumentMoniker": "Cantina\\Form2.cs",
+              "ToolTip": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Form2.cs",
+              "RelativeToolTip": "Cantina\\Form2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T12:36:17.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form2.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Form2.cs",
+              "RelativeDocumentMoniker": "Cantina\\Form2.cs",
+              "ToolTip": "C:\\Users\\25163127\\source\\repos\\Cantina\\Cantina\\Form2.cs [Projeto]",
+              "RelativeToolTip": "Cantina\\Form2.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T11:44:47.889Z",
               "EditorCaption": " [Projeto]"
             }
           ]

@@ -13,8 +13,7 @@ namespace Cantina
     {
         public string Nome { get; set; }
         public decimal Valor { get; set; }
-
-        //public double total => Valor * Quantidade;
+        public bool chapa {  get; set; }
         public int Quantidade { get; set; }
 
         public override string ToString()
@@ -22,6 +21,9 @@ namespace Cantina
             return $"{Nome} - R${Valor} - x{Quantidade}";
         }
 
-
+        public void ItensDoPedido() 
+        { 
+        
+        }
     }
 }
