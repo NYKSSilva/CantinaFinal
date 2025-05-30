@@ -26,5 +26,10 @@ namespace Cantina
         {
 
         }
+
+        private void pedidos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if pedido
+        }
     }
 }

@@ -59,7 +59,7 @@
             Pedido.ItemHeight = 21;
             Pedido.Location = new Point(632, 142);
             Pedido.Name = "Pedido";
-            Pedido.Size = new Size(296, 277);
+            Pedido.Size = new Size(430, 277);
             Pedido.TabIndex = 0;
             Pedido.SelectedIndexChanged += Pedido_SelectedIndexChanged_1;
             // 
@@ -71,9 +71,9 @@
             Menu.FormattingEnabled = true;
             Menu.ItemHeight = 21;
             Menu.Items.AddRange(new object[] { "" });
-            Menu.Location = new Point(49, 107);
+            Menu.Location = new Point(49, 116);
             Menu.Name = "Menu";
-            Menu.Size = new Size(319, 277);
+            Menu.Size = new Size(300, 277);
             Menu.TabIndex = 1;
             Menu.SelectedIndexChanged += Menu_SelectedIndexChanged;
             // 
@@ -253,7 +253,7 @@
             // 
             dateTimePicker1.CalendarMonthBackground = Color.FromArgb(230, 255, 0);
             dateTimePicker1.Format = DateTimePickerFormat.Time;
-            dateTimePicker1.Location = new Point(49, 81);
+            dateTimePicker1.Location = new Point(60, 81);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(98, 20);
             dateTimePicker1.TabIndex = 21;

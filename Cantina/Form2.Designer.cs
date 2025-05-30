@@ -52,7 +52,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.raio;
-            pictureBox2.Location = new Point(-44, -60);
+            pictureBox2.Location = new Point(-35, -69);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(854, 709);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -81,6 +81,7 @@
             pedidos.Name = "pedidos";
             pedidos.Size = new Size(536, 304);
             pedidos.TabIndex = 4;
+            pedidos.SelectedIndexChanged += pedidos_SelectedIndexChanged;
             // 
             // button1
             // 

@@ -7,7 +7,7 @@ namespace Cantina
     public partial class forms : Form
     {
         decimal total = 0;
-
+        List<Itens> produto = new List<Itens>();
         public forms()
         {
             InitializeComponent();
@@ -18,16 +18,16 @@ namespace Cantina
             Pedido.ValueMember = "Valor";
             Pedido.DisplayMember = "ToString";
 
-            Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50m });
-            Menu.Items.Add(new Itens { Nome = "Coxinha ", Valor = 5.00m });
-            Menu.Items.Add(new Itens { Nome = "Pastel de Carne ", Valor = 6.00m });
-            Menu.Items.Add(new Itens { Nome = "Pastel de Queijo ", Valor = 5.50m });
-            Menu.Items.Add(new Itens { Nome = "Suco Natural(300ml) ", Valor = 4.00m });
-            Menu.Items.Add(new Itens { Nome = "Refrigerante Lata ", Valor = 4.50m });
-            Menu.Items.Add(new Itens { Nome = "Hamburúrguer Simples ", Valor = 8.00m });
-            Menu.Items.Add(new Itens { Nome = "Hamburúrguer com Queijo ", Valor = 9.00m });
-            Menu.Items.Add(new Itens { Nome = " X-Tudo ", Valor = 12.00m });
-            Menu.Items.Add(new Itens { Nome = "Agua Mineral(500ml) ", Valor = 2.50m });
+            Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50m, Chapa = false  });
+            Menu.Items.Add(new Itens { Nome = "Coxinha ", Valor = 5.00m, Chapa = false });
+            Menu.Items.Add(new Itens { Nome = "Pastel de Carne ", Valor = 6.00m, Chapa = true });
+            Menu.Items.Add(new Itens { Nome = "Pastel de Queijo ", Valor = 5.50m, Chapa = true });
+            Menu.Items.Add(new Itens { Nome = "Suco Natural(300ml) ", Valor = 4.00m, Chapa = true });
+            Menu.Items.Add(new Itens { Nome = "Refrigerante Lata ", Valor = 4.50m, Chapa = false });
+            Menu.Items.Add(new Itens { Nome = "Hamburúrguer Simples ", Valor = 8.00m, Chapa = true });
+            Menu.Items.Add(new Itens { Nome = "Hamburúrguer com Queijo ", Valor = 9.00m, Chapa = true });
+            Menu.Items.Add(new Itens { Nome = " X-Tudo ", Valor = 12.00m, Chapa = true });
+            Menu.Items.Add(new Itens { Nome = "Agua Mineral(500ml) ", Valor = 2.50m, Chapa = false });
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -46,16 +46,18 @@ namespace Cantina
                     {
 
                         Itens itemPedido = new Itens
-                        {
+                        { 
                             Nome = itemSelecionado.Nome,
                             Valor = itemSelecionado.Valor,
-                            Quantidade = quantidade
+                            Quantidade = quantidade,
+                            Hora = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
                         };
                        
                         Pedido.Items.Add(itemPedido);
                         total += itemPedido.Valor * itemPedido.Quantidade;
                         lblTotal.Text = total.ToString("F2");
                         Quantidadebtn.Text = "1";
+                        produto.Add(itemPedido);
                     }
 
                     else
