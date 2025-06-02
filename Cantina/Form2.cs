@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cantina
 {
-    public partial class Form2 : Form
+    public partial class balcão : Form
     {
-        public Form2()
+        public balcão()
         {
             InitializeComponent();
         }
@@ -29,7 +29,14 @@ namespace Cantina
 
         private void pedidos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if pedido
+
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            vendas vendas = new vendas();
+            vendas.Show();
         }
     }
 }

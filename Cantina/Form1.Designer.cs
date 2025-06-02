@@ -1,6 +1,6 @@
 ﻿namespace Cantina
 {
-    partial class forms
+    partial class vendas
     {
         /// <summary>
         ///  Required designer variable.
@@ -46,6 +46,7 @@
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             dateTimePicker1 = new DateTimePicker();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -258,13 +259,24 @@
             dateTimePicker1.Size = new Size(98, 20);
             dateTimePicker1.TabIndex = 21;
             // 
-            // forms
+            // button3
+            // 
+            button3.Location = new Point(12, 582);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 49);
+            button3.TabIndex = 22;
+            button3.Text = "balcão";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_1;
+            // 
+            // vendas
             // 
             AutoScaleDimensions = new SizeF(7F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 255, 0);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1105, 643);
+            Controls.Add(button3);
             Controls.Add(dateTimePicker1);
             Controls.Add(pictureBox3);
             Controls.Add(CheckBox);
@@ -284,7 +296,7 @@
             Controls.Add(Pedido);
             Controls.Add(pictureBox2);
             Font = new Font("Times New Roman", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Name = "forms";
+            Name = "vendas";
             Text = "Cantina";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -314,5 +326,6 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private DateTimePicker dateTimePicker1;
+        private Button button3;
     }
 }

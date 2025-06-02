@@ -1,6 +1,6 @@
 ﻿namespace Cantina
 {
-    partial class Form2
+    partial class balcão
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             button1 = new Button();
             button3 = new Button();
             historico = new ListBox();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -121,12 +122,23 @@
             historico.TabIndex = 8;
             historico.SelectedIndexChanged += historico_SelectedIndexChanged;
             // 
-            // Form2
+            // button2
+            // 
+            button2.Location = new Point(12, 539);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 49);
+            button2.TabIndex = 23;
+            button2.Text = "vendas";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // balcão
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 255, 0);
             ClientSize = new Size(1081, 600);
+            Controls.Add(button2);
             Controls.Add(historico);
             Controls.Add(button3);
             Controls.Add(button1);
@@ -134,7 +146,7 @@
             Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Name = "Form2";
+            Name = "balcão";
             Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -151,5 +163,6 @@
         private Button button1;
         private Button button3;
         private ListBox historico;
+        private Button button2;
     }
 }

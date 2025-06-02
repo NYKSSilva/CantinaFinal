@@ -4,11 +4,11 @@ using Microsoft.VisualBasic;
 
 namespace Cantina
 {
-    public partial class forms : Form
+    public partial class vendas : Form
     {
         decimal total = 0;
-        List<Itens> produto = new List<Itens>();
-        public forms()
+        static List<Itens> produto = new List<Itens>();
+        public vendas()
         {
             InitializeComponent();
 
@@ -18,7 +18,7 @@ namespace Cantina
             Pedido.ValueMember = "Valor";
             Pedido.DisplayMember = "ToString";
 
-            Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50m, Chapa = false  });
+            Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50m, Chapa = false });
             Menu.Items.Add(new Itens { Nome = "Coxinha ", Valor = 5.00m, Chapa = false });
             Menu.Items.Add(new Itens { Nome = "Pastel de Carne ", Valor = 6.00m, Chapa = true });
             Menu.Items.Add(new Itens { Nome = "Pastel de Queijo ", Valor = 5.50m, Chapa = true });
@@ -32,7 +32,7 @@ namespace Cantina
 
         private void label1_Click(object sender, EventArgs e)
         {
-            forms.ActiveForm.Close();
+            vendas.ActiveForm.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,17 +42,17 @@ namespace Cantina
                 if (Menu.SelectedItem is Itens itemSelecionado)
                 {
 
-                    if (int.TryParse(Quantidadebtn.Text, out int quantidade) && quantidade >=1)
+                    if (int.TryParse(Quantidadebtn.Text, out int quantidade) && quantidade >= 1)
                     {
 
                         Itens itemPedido = new Itens
-                        { 
+                        {
                             Nome = itemSelecionado.Nome,
                             Valor = itemSelecionado.Valor,
                             Quantidade = quantidade,
                             Hora = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
                         };
-                       
+
                         Pedido.Items.Add(itemPedido);
                         total += itemPedido.Valor * itemPedido.Quantidade;
                         lblTotal.Text = total.ToString("F2");
@@ -87,7 +87,8 @@ namespace Cantina
                     total -= itemRemovido.Valor * itemRemovido.Quantidade;
                     Pedido.Items.Remove(itemRemovido);
                     lblTotal.Text = total.ToString("F2");
-                    
+                    produto.Remove(itemRemovido);
+
                 }
             }
             else
@@ -106,7 +107,7 @@ namespace Cantina
             string Viagem = CheckBox.Checked ? "Sim" : "Não";
             string pagamento = comboBox1.SelectedItem as string;
             string Cliente = NomeCliente.Text;
-           
+
             if (string.IsNullOrEmpty(Cliente))
             {
                 MessageBox.Show("Insira o nome do cliente");
@@ -118,7 +119,7 @@ namespace Cantina
                 {
                     MessageBox.Show("AÇÃO INDISPONIVEL, ESCOLHA UM METODO DE PAGAMENTO!");
                 }
-                 
+
                 if (pagamento == "Dinheiro")
                 {
                     string escolha = Interaction.InputBox("Valor pago: ", $"Valor a ser pago: {total}");
@@ -128,7 +129,7 @@ namespace Cantina
                         MessageBox.Show("Valor insuficiente");
                         return;
                     }
-                    
+
 
                     if (valorPago > total)
                     {
@@ -151,7 +152,7 @@ namespace Cantina
                         lblTotal.Text = total.ToString("F2");
                         comboBox1.SelectedIndex = -1;
                     }
-                    else 
+                    else
                     {
                         MessageBox.Show($"""
                         
@@ -233,5 +234,11 @@ namespace Cantina
         {
         }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            balcão balcão = new balcão();
+            balcão.ShowDialog();
+
+        }
     }
 }

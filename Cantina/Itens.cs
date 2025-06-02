@@ -17,12 +17,12 @@ namespace Cantina
         public string Hora {  get; set; }
         public int Quantidade { get; set; }
 
-        public override string ToString()
+        public override  string ToString()
         {
             return $"{Nome} - R${Valor} - x{Quantidade} - {Hora}";
         }
 
-        public void ItensDoPedido() 
+        static void ItensDoPedido() 
         { 
         
         }
