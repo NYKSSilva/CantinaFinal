@@ -19,7 +19,7 @@ namespace Cantina
 
         public override  string ToString()
         {
-            return $"{Nome} - R${Valor} - x{Quantidade} - {Hora}";
+            return $"{Nome} - R${Valor} - x{Quantidade} ¦ {Hora} ¦ ";
         }
 
         static void ItensDoPedido() 

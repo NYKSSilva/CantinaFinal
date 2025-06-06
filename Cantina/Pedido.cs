@@ -6,12 +6,29 @@ using System.Threading.Tasks;
 
 namespace Cantina
 {
-     static class Pedido
+    public class Pedido
     {
-        static string cliente { get; set; }
 
-        static DateTime data { get; set; }
+        public string Cliente { get; set; }
+        public string Pgmt { get; set; }
+        public bool Viagem { get; set; }
+        public List<Itens> Produtos { get; set; }
+        public DateTime Hora { get; set; }
+        public Status Status { get; set; }
 
-        static string pgmt {  get; set; }
+        public Pedido(string cliente, string pgmt, DateTime hora, bool viagem, List<Itens> produtos, Status status)
+        {
+            Cliente = cliente;
+            Pgmt = pgmt;
+            Viagem = viagem;
+            Produtos = produtos;
+            Hora = hora;
+            Status = status;
+        }
+
+        // public override string ToString()
+        //{                                          criar a formatação para o balcão
+        //return "";
+        //}
     }
 }

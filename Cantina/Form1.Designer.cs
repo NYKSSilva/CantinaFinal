@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Pedido = new ListBox();
+            pedido = new ListBox();
             Menu = new ListBox();
             button1 = new Button();
             button2 = new Button();
@@ -51,18 +51,18 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // Pedido
+            // pedido
             // 
-            Pedido.BackColor = Color.FromArgb(17, 25, 12);
-            Pedido.Font = new Font("Agrandir", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Pedido.ForeColor = Color.FromArgb(230, 255, 0);
-            Pedido.FormattingEnabled = true;
-            Pedido.ItemHeight = 21;
-            Pedido.Location = new Point(632, 142);
-            Pedido.Name = "Pedido";
-            Pedido.Size = new Size(430, 277);
-            Pedido.TabIndex = 0;
-            Pedido.SelectedIndexChanged += Pedido_SelectedIndexChanged_1;
+            pedido.BackColor = Color.FromArgb(17, 25, 12);
+            pedido.Font = new Font("Agrandir", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            pedido.ForeColor = Color.FromArgb(230, 255, 0);
+            pedido.FormattingEnabled = true;
+            pedido.ItemHeight = 21;
+            pedido.Location = new Point(632, 142);
+            pedido.Name = "pedido";
+            pedido.Size = new Size(430, 277);
+            pedido.TabIndex = 0;
+            pedido.SelectedIndexChanged += Pedido_SelectedIndexChanged_1;
             // 
             // Menu
             // 
@@ -261,12 +261,15 @@
             // 
             // button3
             // 
+            button3.BackColor = Color.Black;
+            button3.Font = new Font("Agrandir", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(230, 255, 0);
             button3.Location = new Point(12, 582);
             button3.Name = "button3";
             button3.Size = new Size(75, 49);
             button3.TabIndex = 22;
             button3.Text = "balcão";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click_1;
             // 
             // vendas
@@ -293,7 +296,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(Menu);
-            Controls.Add(Pedido);
+            Controls.Add(pedido);
             Controls.Add(pictureBox2);
             Font = new Font("Times New Roman", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "vendas";
@@ -307,7 +310,7 @@
 
         #endregion
 
-        private ListBox Pedido;
+        private ListBox pedido;
         private ListBox Menu;
         private Button button1;
         private Button button2;

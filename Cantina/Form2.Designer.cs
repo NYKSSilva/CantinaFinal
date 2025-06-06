@@ -36,6 +36,7 @@
             button3 = new Button();
             historico = new ListBox();
             button2 = new Button();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -66,11 +67,12 @@
             label1.BackColor = Color.Black;
             label1.Font = new Font("Agrandir", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(230, 255, 0);
-            label1.Location = new Point(12, 45);
+            label1.Location = new Point(26, 100);
             label1.Name = "label1";
             label1.Size = new Size(173, 20);
             label1.TabIndex = 2;
             label1.Text = "Pedidos em Andamento";
+            label1.Click += label1_Click;
             // 
             // pedidos
             // 
@@ -124,13 +126,26 @@
             // 
             // button2
             // 
+            button2.BackColor = Color.Black;
+            button2.Font = new Font("Agrandir", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.FromArgb(230, 255, 0);
             button2.Location = new Point(12, 539);
             button2.Name = "button2";
             button2.Size = new Size(75, 49);
             button2.TabIndex = 23;
             button2.Text = "vendas";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Agrandir", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(724, 209);
+            label2.Name = "label2";
+            label2.Size = new Size(140, 20);
+            label2.TabIndex = 24;
+            label2.Text = "Pedidos Entregues";
             // 
             // balcão
             // 
@@ -138,6 +153,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 255, 0);
             ClientSize = new Size(1081, 600);
+            Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(historico);
             Controls.Add(button3);
@@ -164,5 +180,6 @@
         private Button button3;
         private ListBox historico;
         private Button button2;
+        private Label label2;
     }
 }

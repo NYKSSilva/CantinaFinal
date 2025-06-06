@@ -7,16 +7,16 @@ namespace Cantina
     public partial class vendas : Form
     {
         decimal total = 0;
-        static List<Itens> produto = new List<Itens>();
+        public List<Itens> carrinho = new List<Itens>();
         public vendas()
         {
             InitializeComponent();
 
             Menu.DisplayMember = "Nome";
             Menu.ValueMember = "Valor";
-            Pedido.DisplayMember = "Nome";
-            Pedido.ValueMember = "Valor";
-            Pedido.DisplayMember = "ToString";
+            pedido.DisplayMember = "Nome";
+            pedido.ValueMember = "Valor";
+            pedido.DisplayMember = "ToString";
 
             Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50m, Chapa = false });
             Menu.Items.Add(new Itens { Nome = "Coxinha ", Valor = 5.00m, Chapa = false });
@@ -53,11 +53,11 @@ namespace Cantina
                             Hora = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
                         };
 
-                        Pedido.Items.Add(itemPedido);
+                        pedido.Items.Add(itemPedido);
                         total += itemPedido.Valor * itemPedido.Quantidade;
                         lblTotal.Text = total.ToString("F2");
                         Quantidadebtn.Text = "1";
-                        produto.Add(itemPedido);
+                        PedidoFinalizado.pedidoFinalizado.Add(itemPedido);
                     }
 
                     else
@@ -80,14 +80,14 @@ namespace Cantina
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Pedido != null)
+            if (pedido != null)
             {
-                if (Pedido.SelectedItem is Itens itemRemovido)
+                if (pedido.SelectedItem is Itens itemRemovido)
                 {
                     total -= itemRemovido.Valor * itemRemovido.Quantidade;
-                    Pedido.Items.Remove(itemRemovido);
+                    pedido.Items.Remove(itemRemovido);
                     lblTotal.Text = total.ToString("F2");
-                    produto.Remove(itemRemovido);
+                    PedidoFinalizado.pedidoFinalizado.Remove(itemRemovido);
 
                 }
             }
@@ -115,7 +115,7 @@ namespace Cantina
             }
             else
             {
-                if ((Pedido.Items.Count == 0) && string.IsNullOrEmpty(pagamento))
+                if ((pedido.Items.Count == 0) && string.IsNullOrEmpty(pagamento))
                 {
                     MessageBox.Show("AÇÃO INDISPONIVEL, ESCOLHA UM METODO DE PAGAMENTO!");
                 }
@@ -146,7 +146,8 @@ namespace Cantina
                         Compra aprovada, obrigado pela preferencia, {Cliente}
                         Pedido:
                         """);
-                        Pedido.Items.Clear();
+
+                        pedido.Items.Clear();
                         NomeCliente.Clear();
                         total = 0;
                         lblTotal.Text = total.ToString("F2");
@@ -164,18 +165,17 @@ namespace Cantina
                         Compra aprovada, obrigado pela preferencia, {Cliente}
                         
                         """);
-                        Pedido.Items.Clear();
+                        pedido.Items.Clear();
                         NomeCliente.Clear();
                         total = 0;
                         lblTotal.Text = total.ToString("F2");
                         comboBox1.SelectedIndex = -1;
                     }
                 }
-
-
                 else
                 {
-                    Pedido.Items.Clear();
+                   
+                    pedido.Items.Clear();
                     MessageBox.Show("Seu Total = R$" + total.ToString("F2"));
                     MessageBox.Show($"""
                         
@@ -189,11 +189,28 @@ namespace Cantina
                     total = 0;
                     lblTotal.Text = total.ToString("F2");
                     comboBox1.SelectedIndex = -1;
-                    Pedido.Items.Clear();
+                    pedido.Items.Clear();
                     NomeCliente.Clear();
+                }
+
+                bool Chapa = false;
+                if (Chapa)
+                {
+                    Status statusPedido = Status.PRONTO;
+                    var novoPedido = new Pedido(Cliente, pagamento, DateTime.Now, CheckBox.Checked, new List<Itens>(carrinho), statusPedido);
+                    PedidoFinalizado.pedidoFinalizado.AddRange(novoPedido.Produtos);
+
+                }
+                else 
+                {
+                    Status statusPedido = Status.PREPARANDO;
+                    var novoPedido = new Pedido(Cliente, pagamento, DateTime.Now, CheckBox.Checked, new List<Itens>(carrinho), statusPedido);
+                    PedidoFinalizado.pedidoFinalizado.AddRange(novoPedido.Produtos);
 
                 }
             }
+
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
