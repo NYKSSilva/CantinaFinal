@@ -57,7 +57,7 @@ namespace Cantina
                         total += itemPedido.Valor * itemPedido.Quantidade;
                         lblTotal.Text = total.ToString("F2");
                         Quantidadebtn.Text = "1";
-                        PedidoFinalizado.pedidoFinalizado.Add(itemPedido);
+                       
                     }
 
                     else
@@ -87,7 +87,7 @@ namespace Cantina
                     total -= itemRemovido.Valor * itemRemovido.Quantidade;
                     pedido.Items.Remove(itemRemovido);
                     lblTotal.Text = total.ToString("F2");
-                    PedidoFinalizado.pedidoFinalizado.Remove(itemRemovido);
+                    //PedidoFinalizado.pedidoFinalizado.Remove(itemRemovido);
 
                 }
             }
