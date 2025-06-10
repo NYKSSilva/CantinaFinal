@@ -193,23 +193,12 @@ namespace Cantina
                     NomeCliente.Clear();
                 }
 
-                bool Chapa = false;
-                if (Chapa)
-                {
-                    Status statusPedido = Status.PRONTO;
-                    var novoPedido = new Pedido(Cliente, pagamento, DateTime.Now, CheckBox.Checked, new List<Itens>(carrinho), statusPedido);
-                    PedidoFinalizado.pedidoFinalizado.AddRange(novoPedido.Produtos);
+                bool pedidoChapa = carrinho.Any(p => p.Chapa);
+                Status statusPedido = pedidoChapa ? Status.PREPARANDO : Status.PRONTO;
 
-                }
-                else 
-                {
-                    Status statusPedido = Status.PREPARANDO;
-                    var novoPedido = new Pedido(Cliente, pagamento, DateTime.Now, CheckBox.Checked, new List<Itens>(carrinho), statusPedido);
-                    PedidoFinalizado.pedidoFinalizado.AddRange(novoPedido.Produtos);
-
-                }
+                var novoPedido = new Pedido (Cliente, pagamento, CheckBox.Checked, new List<Itens>(carrinho), statusPedido);
+                PedidoFinalizado.pedidoFinalizado.Add(novoPedido);
             }
-
 
         }
         private void Form1_Load(object sender, EventArgs e)

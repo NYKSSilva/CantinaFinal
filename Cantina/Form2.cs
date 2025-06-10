@@ -29,17 +29,17 @@ namespace Cantina
 
         private void pedidos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //foreach (Pedido pedido in PedidoFinalizado.pedidoFinalizado)
-            //{
+            foreach (Pedido pedido in PedidoFinalizado.pedidoFinalizado)
+            {
 
-            //    if (pedido.Status == Status.PRONTO)
-            //        pedidos.Items.Add(pedido);
+                if (pedido.Status == Status.PRONTO)
+                    pedidos.Items.Add(pedido);
 
-            //    else
-            //    {
-            //        historico.Items.Add(pedido);
-            //    }
-            //}
+                else
+                {
+                    historico.Items.Add(pedido);
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
