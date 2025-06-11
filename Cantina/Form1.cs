@@ -12,22 +12,16 @@ namespace Cantina
         {
             InitializeComponent();
 
-            Menu.DisplayMember = "Nome";
-            Menu.ValueMember = "Valor";
-            pedido.DisplayMember = "Nome";
-            pedido.ValueMember = "Valor";
-            pedido.DisplayMember = "ToString";
-
-            Menu.Items.Add(new Itens { Nome = "Pão de queijo ", Valor = 3.50m, Chapa = false });
-            Menu.Items.Add(new Itens { Nome = "Coxinha ", Valor = 5.00m, Chapa = false });
-            Menu.Items.Add(new Itens { Nome = "Pastel de Carne ", Valor = 6.00m, Chapa = true });
-            Menu.Items.Add(new Itens { Nome = "Pastel de Queijo ", Valor = 5.50m, Chapa = true });
-            Menu.Items.Add(new Itens { Nome = "Suco Natural(300ml) ", Valor = 4.00m, Chapa = true });
-            Menu.Items.Add(new Itens { Nome = "Refrigerante Lata ", Valor = 4.50m, Chapa = false });
-            Menu.Items.Add(new Itens { Nome = "Hamburúrguer Simples ", Valor = 8.00m, Chapa = true });
-            Menu.Items.Add(new Itens { Nome = "Hamburúrguer com Queijo ", Valor = 9.00m, Chapa = true });
-            Menu.Items.Add(new Itens { Nome = " X-Tudo ", Valor = 12.00m, Chapa = true });
-            Menu.Items.Add(new Itens { Nome = "Agua Mineral(500ml) ", Valor = 2.50m, Chapa = false });
+            Menu.Items.Add(new Itens("Pão de queijo ", 3.50m, false));
+            Menu.Items.Add(new Itens("Coxinha ", 5.00m, false));
+            Menu.Items.Add(new Itens("Pastel de Carne ", 6.00m, true));
+            Menu.Items.Add(new Itens("Pastel de Queijo ", 5.50m, true));
+            Menu.Items.Add(new Itens("Suco Natural(300ml) ", 4.00m, true));
+            Menu.Items.Add(new Itens("Refrigerante Lata ", 4.50m, false));
+            Menu.Items.Add(new Itens("Hamburúrguer Simples ", 8.00m, true));
+            Menu.Items.Add(new Itens("Hamburúrguer com Queijo ", 9.00m, true));
+            Menu.Items.Add(new Itens(" X-Tudo ", 12.00m, true));
+            Menu.Items.Add(new Itens("Agua Mineral(500ml) ", 2.50m, false));
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,19 +39,17 @@ namespace Cantina
                     if (int.TryParse(Quantidadebtn.Text, out int quantidade) && quantidade >= 1)
                     {
 
-                        Itens itemPedido = new Itens
+                        Itens itemPedido = new Itens(itemSelecionado.Nome, itemSelecionado.Valor, itemSelecionado.Chapa)
                         {
-                            Nome = itemSelecionado.Nome,
-                            Valor = itemSelecionado.Valor,
                             Quantidade = quantidade,
-                            Hora = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
                         };
 
+                        carrinho.Add(itemPedido);
                         pedido.Items.Add(itemPedido);
                         total += itemPedido.Valor * itemPedido.Quantidade;
                         lblTotal.Text = total.ToString("F2");
                         Quantidadebtn.Text = "1";
-                       
+
                     }
 
                     else
@@ -87,7 +79,8 @@ namespace Cantina
                     total -= itemRemovido.Valor * itemRemovido.Quantidade;
                     pedido.Items.Remove(itemRemovido);
                     lblTotal.Text = total.ToString("F2");
-                    //PedidoFinalizado.pedidoFinalizado.Remove(itemRemovido);
+                    carrinho.Remove(itemRemovido);
+                    
 
                 }
             }
@@ -194,9 +187,9 @@ namespace Cantina
                 }
 
                 bool pedidoChapa = carrinho.Any(p => p.Chapa);
-                Status statusPedido = pedidoChapa ? Status.PREPARANDO : Status.PRONTO;
+                Status pedidoStatus = pedidoChapa ? Status.PREPARANDO : Status.PRONTO;
 
-                var novoPedido = new Pedido (Cliente, pagamento, CheckBox.Checked, new List<Itens>(carrinho), statusPedido);
+                var novoPedido = new Pedido (Cliente, pagamento, DateTime.Now, CheckBox.Checked, new List<Itens>(carrinho), pedidoStatus);
                 PedidoFinalizado.pedidoFinalizado.Add(novoPedido);
             }
 

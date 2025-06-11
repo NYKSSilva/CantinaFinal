@@ -26,9 +26,10 @@ namespace Cantina
             Status = status;
         }
 
-        // public override string ToString()
-        //{                                          criar a formatação para o balcão
-        //return "";
-        //}
+        public override string ToString()
+        {
+           string produtoDescricao = string.Join(", ", Produtos.Select(p => $"{p.Quantidade} x {p.Nome} "));
+         return $"{Cliente} - {produtoDescricao} {Status}";
+        }
     }
 }

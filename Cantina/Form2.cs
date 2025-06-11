@@ -19,7 +19,22 @@ namespace Cantina
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (pedidos.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um pedido!!!!!!!");
+                return;
+            }
 
+            var pedidoSelecionado = pedidos.SelectedItem as Pedido;
+            if (historico.Items.Count == 5)
+            {
+                historico.Items.RemoveAt(4);
+            }
+
+            pedidoSelecionado.Status = Status.ENTREGUE;
+
+            historico.Items.Insert(0, pedidoSelecionado);
+            pedidos.Items.Remove(pedidoSelecionado);    
         }
 
         private void historico_SelectedIndexChanged(object sender, EventArgs e)
@@ -29,17 +44,7 @@ namespace Cantina
 
         private void pedidos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (Pedido pedido in PedidoFinalizado.pedidoFinalizado)
-            {
-
-                if (pedido.Status == Status.PRONTO)
-                    pedidos.Items.Add(pedido);
-
-                else
-                {
-                    historico.Items.Add(pedido);
-                }
-            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,6 +56,21 @@ namespace Cantina
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void balcão_Load(object sender, EventArgs e)
+        {
+            foreach (Pedido pedido in PedidoFinalizado.pedidoFinalizado)
+            {
+
+                if (pedido.Status == Status.PRONTO)
+                    pedidos.Items.Add(pedido);
+
+                else if (pedido.Status == Status.ENTREGUE)
+                {
+                    historico.Items.Add(pedido);
+                }
+            }
         }
     }
 }

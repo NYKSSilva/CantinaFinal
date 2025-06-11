@@ -14,17 +14,18 @@ namespace Cantina
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public bool Chapa { get; set; }
-        public string Hora {  get; set; }
         public int Quantidade { get; set; }
 
+        public Itens(string nome, decimal valor, bool chapa)
+        {
+         Nome = nome;
+         Valor = valor;
+         Chapa = chapa;
+        }
         public override  string ToString()
         {
-            return $"{Nome} - R${Valor} - x{Quantidade} ¦ {Hora} ¦ ";
+            return $"{Nome} - R${Valor} - x{Quantidade} ¦ ";
         }
 
-        static void ItensDoPedido() 
-        { 
-        
-        }
     }
 }

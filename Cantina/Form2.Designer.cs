@@ -33,7 +33,6 @@
             label1 = new Label();
             pedidos = new ListBox();
             button1 = new Button();
-            button3 = new Button();
             historico = new ListBox();
             button2 = new Button();
             label2 = new Label();
@@ -99,18 +98,6 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // button3
-            // 
-            button3.BackColor = Color.Black;
-            button3.Font = new Font("Agrandir", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.FromArgb(230, 255, 0);
-            button3.Location = new Point(671, 142);
-            button3.Name = "button3";
-            button3.Size = new Size(79, 34);
-            button3.TabIndex = 7;
-            button3.Text = "Cancelar";
-            button3.UseVisualStyleBackColor = false;
-            // 
             // historico
             // 
             historico.BackColor = Color.FromArgb(17, 25, 12);
@@ -156,7 +143,6 @@
             Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(historico);
-            Controls.Add(button3);
             Controls.Add(button1);
             Controls.Add(pedidos);
             Controls.Add(label1);
@@ -164,6 +150,7 @@
             Controls.Add(pictureBox1);
             Name = "balcão";
             Text = "Form2";
+            Load += balcão_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -177,7 +164,6 @@
         private Label label1;
         private ListBox pedidos;
         private Button button1;
-        private Button button3;
         private ListBox historico;
         private Button button2;
         private Label label2;
