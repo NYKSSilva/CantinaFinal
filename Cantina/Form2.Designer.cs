@@ -37,6 +37,7 @@
             button2 = new Button();
             label2 = new Label();
             button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -148,12 +149,26 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.Black;
+            button4.Font = new Font("Agrandir", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.FromArgb(230, 255, 0);
+            button4.Location = new Point(110, 515);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 49);
+            button4.TabIndex = 26;
+            button4.Text = "Chamada";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // balcão
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 255, 0);
             ClientSize = new Size(1081, 600);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(label2);
             Controls.Add(button2);
@@ -183,5 +198,6 @@
         private Button button2;
         private Label label2;
         private Button button3;
+        private Button button4;
     }
 }

@@ -37,3 +37,4 @@ C:\Users\25163127\Documents\CantinaFinal\CantinaFinal\Cantina\obj\Debug\net8.0-w
 C:\Users\25163127\Documents\CantinaFinal\CantinaFinal\Cantina\obj\Debug\net8.0-windows\Cantina.genruntimeconfig.cache
 C:\Users\25163127\Documents\CantinaFinal\CantinaFinal\Cantina\obj\Debug\net8.0-windows\ref\Cantina.dll
 C:\Users\25163127\Documents\CantinaFinal\CantinaFinal\Cantina\obj\Debug\net8.0-windows\Cantina.Cozinha.resources
+C:\Users\25163127\Documents\CantinaFinal\CantinaFinal\Cantina\obj\Debug\net8.0-windows\Cantina.Chamada.resources

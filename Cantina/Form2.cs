@@ -24,7 +24,7 @@ namespace Cantina
                 MessageBox.Show("Selecione um pedido!!!!!!!");
                 return;
             }
-            
+
             var pedidoSelecionado = pedidos.SelectedItem as Pedido;
 
             if (historico.Items.Count == 5)
@@ -75,6 +75,12 @@ namespace Cantina
         {
             Cozinha cozinha = new Cozinha();
             cozinha.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Chamada chamada = new Chamada();
+            chamada.Show();
         }
     }
 }
