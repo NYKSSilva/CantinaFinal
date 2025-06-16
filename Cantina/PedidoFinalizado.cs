@@ -8,6 +8,6 @@ namespace Cantina
 {
    static  class PedidoFinalizado
     {
-       public static List<Pedido> pedidoFinalizado = new List<Pedido>();
+       public static List<Pedido> Pedidos = new List<Pedido>();
     }
 }

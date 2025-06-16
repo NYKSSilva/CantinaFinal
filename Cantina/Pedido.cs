@@ -28,8 +28,31 @@ namespace Cantina
 
         public override string ToString()
         {
-           string produtoDescricao = string.Join(", ", Produtos.Select(p => $"{p.Quantidade} x {p.Nome} "));
-         return $"{Cliente} - {produtoDescricao} {Status}";
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{Cliente} - ");
+
+            if (this.Status == Status.PREPARANDO)
+            {
+                foreach (var produto in Produtos)
+                {
+                    if (produto.Chapa)
+                    {
+                        sb.Append($" {produto.Quantidade} x - {produto.Nome}  ");
+                    }
+                }
+
+            }
+            else
+            {
+                foreach (var produto in Produtos)
+                    sb.Append($"{produto.Quantidade} X - {produto.Nome}");
+            }
+            return sb.ToString().TrimEnd(' ', '/');
+
+
+
+            //  string produtoDescricao = string.Join(", ", Produtos.Select(p => $"{p.Quantidade} x {p.Nome} "));
+            //return $"{Cliente} - {produtoDescricao} {Status}";
         }
     }
 }

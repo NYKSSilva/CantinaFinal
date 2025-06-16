@@ -36,6 +36,7 @@
             historico = new ListBox();
             button2 = new Button();
             label2 = new Label();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -66,7 +67,7 @@
             label1.BackColor = Color.Black;
             label1.Font = new Font("Agrandir", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(230, 255, 0);
-            label1.Location = new Point(26, 100);
+            label1.Location = new Point(12, 75);
             label1.Name = "label1";
             label1.Size = new Size(173, 20);
             label1.TabIndex = 2;
@@ -79,9 +80,9 @@
             pedidos.Font = new Font("Agrandir", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             pedidos.FormattingEnabled = true;
             pedidos.ItemHeight = 20;
-            pedidos.Location = new Point(12, 132);
+            pedidos.Location = new Point(12, 98);
             pedidos.Name = "pedidos";
-            pedidos.Size = new Size(536, 304);
+            pedidos.Size = new Size(549, 304);
             pedidos.TabIndex = 4;
             pedidos.SelectedIndexChanged += pedidos_SelectedIndexChanged;
             // 
@@ -90,7 +91,7 @@
             button1.BackColor = Color.Black;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.FromArgb(230, 255, 0);
-            button1.Location = new Point(586, 142);
+            button1.Location = new Point(567, 98);
             button1.Name = "button1";
             button1.Size = new Size(79, 34);
             button1.TabIndex = 5;
@@ -105,9 +106,9 @@
             historico.ForeColor = Color.FromArgb(230, 255, 0);
             historico.FormattingEnabled = true;
             historico.ItemHeight = 20;
-            historico.Location = new Point(711, 232);
+            historico.Location = new Point(567, 263);
             historico.Name = "historico";
-            historico.Size = new Size(358, 284);
+            historico.Size = new Size(502, 284);
             historico.TabIndex = 8;
             historico.SelectedIndexChanged += historico_SelectedIndexChanged;
             // 
@@ -128,11 +129,24 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Agrandir", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(724, 209);
+            label2.Location = new Point(567, 240);
             label2.Name = "label2";
             label2.Size = new Size(140, 20);
             label2.TabIndex = 24;
             label2.Text = "Pedidos Entregues";
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Black;
+            button3.Font = new Font("Agrandir", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(230, 255, 0);
+            button3.Location = new Point(12, 484);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 49);
+            button3.TabIndex = 25;
+            button3.Text = "cozinha";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // balcão
             // 
@@ -140,6 +154,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 255, 0);
             ClientSize = new Size(1081, 600);
+            Controls.Add(button3);
             Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(historico);
@@ -167,5 +182,6 @@
         private ListBox historico;
         private Button button2;
         private Label label2;
+        private Button button3;
     }
 }

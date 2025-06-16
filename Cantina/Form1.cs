@@ -190,7 +190,7 @@ namespace Cantina
                 Status pedidoStatus = pedidoChapa ? Status.PREPARANDO : Status.PRONTO;
 
                 var novoPedido = new Pedido (Cliente, pagamento, DateTime.Now, CheckBox.Checked, new List<Itens>(carrinho), pedidoStatus);
-                PedidoFinalizado.pedidoFinalizado.Add(novoPedido);
+                PedidoFinalizado.Pedidos.Add(novoPedido);
             }
 
         }
