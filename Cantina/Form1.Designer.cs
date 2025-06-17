@@ -233,7 +233,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.bolt_logo;
-            pictureBox3.Location = new Point(955, 12);
+            pictureBox3.Location = new Point(966, -3);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(138, 93);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -300,7 +300,7 @@
             Controls.Add(pictureBox2);
             Font = new Font("Times New Roman", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "vendas";
-            Text = "Cantina";
+            Text = ",";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

@@ -35,6 +35,8 @@ namespace Cantina
             pedidoSelecionado.Status = Status.ENTREGUE;
             historico.Items.Insert(0, pedidoSelecionado);
             pedidos.Items.Remove(pedidoSelecionado);
+            TelaNome telaNome = new TelaNome();  
+            telaNome.ShowDialog();
         }
 
         private void historico_SelectedIndexChanged(object sender, EventArgs e)
