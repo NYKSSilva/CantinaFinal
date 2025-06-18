@@ -108,9 +108,10 @@ namespace Cantina
             }
             else
             {
-                if ((pedido.Items.Count == 0) && string.IsNullOrEmpty(pagamento))
+                if ((pedido.Items.Count == 0)|| string.IsNullOrEmpty(pagamento))
                 {
                     MessageBox.Show("AÇÃO INDISPONIVEL, ESCOLHA UM METODO DE PAGAMENTO!");
+                    return;
                 }
 
                 if (pagamento == "Dinheiro")
@@ -140,11 +141,13 @@ namespace Cantina
                         Pedido:
                         """);
 
-                        pedido.Items.Clear();
+                       
                         NomeCliente.Clear();
                         total = 0;
                         lblTotal.Text = total.ToString("F2");
                         comboBox1.SelectedIndex = -1;
+                        pedido.Items.Clear();
+                        
                     }
                     else
                     {
@@ -158,11 +161,13 @@ namespace Cantina
                         Compra aprovada, obrigado pela preferencia, {Cliente}
                         
                         """);
-                        pedido.Items.Clear();
+                       
                         NomeCliente.Clear();
                         total = 0;
                         lblTotal.Text = total.ToString("F2");
                         comboBox1.SelectedIndex = -1;
+                        pedido.Items.Clear();
+                        
                     }
                 }
                 else
@@ -179,17 +184,19 @@ namespace Cantina
                         Compra aprovada, obrigado pela preferencia, {Cliente}
                         
                         """);
+                    pedido.Items.Clear();
                     total = 0;
                     lblTotal.Text = total.ToString("F2");
                     comboBox1.SelectedIndex = -1;
-                    pedido.Items.Clear();
                     NomeCliente.Clear();
+                   
+                    
                 }
 
                 bool pedidoChapa = carrinho.Any(p => p.Chapa);
                 Status pedidoStatus = pedidoChapa ? Status.PREPARANDO : Status.PRONTO;
 
-                var novoPedido = new Pedido (Cliente, pagamento, DateTime.Now, CheckBox.Checked, new List<Itens>(carrinho), pedidoStatus);
+                Pedido novoPedido = new Pedido (Cliente, pagamento, DateTime.Now, CheckBox.Checked, new List<Itens>(carrinho), pedidoStatus);
                 PedidoFinalizado.Pedidos.Add(novoPedido);
             }
 

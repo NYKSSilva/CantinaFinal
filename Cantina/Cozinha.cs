@@ -35,7 +35,7 @@ namespace Cantina
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var produtoSelecionado = (Pedido)pedidos.SelectedItem;
+            Pedido produtoSelecionado = (Pedido)pedidos.SelectedItem;
             produtoSelecionado.Status = Status.PRONTO;
             pedidos.Items.Remove(produtoSelecionado);
         }

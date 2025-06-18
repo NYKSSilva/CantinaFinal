@@ -42,5 +42,10 @@ namespace Cantina
             balcão balcão = new balcão();
             balcão.Show();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

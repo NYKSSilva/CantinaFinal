@@ -24,12 +24,12 @@ namespace Cantina
 
         private void TelaNome_Load(object sender, EventArgs e)
         {
-             
-            foreach (var pedido in PedidoFinalizado.Pedidos) 
-            {
-                nome.Text = pedido.Cliente;
-                
-            }
+         
+        }
+
+        public void chamada(string nomeCliente)
+        {
+            nome.Text = nomeCliente;
         }
     }
 }

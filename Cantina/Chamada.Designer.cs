@@ -83,7 +83,7 @@
             Andamento.ForeColor = Color.Black;
             Andamento.FormattingEnabled = true;
             Andamento.ItemHeight = 21;
-            Andamento.Location = new Point(168, 53);
+            Andamento.Location = new Point(167, 53);
             Andamento.Name = "Andamento";
             Andamento.Size = new Size(268, 361);
             Andamento.TabIndex = 3;
@@ -114,11 +114,12 @@
             label1.BackColor = Color.FromArgb(230, 255, 0);
             label1.Font = new Font("Agrandir", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(196, 29);
+            label1.Location = new Point(201, 29);
             label1.Name = "label1";
             label1.Size = new Size(99, 21);
             label1.TabIndex = 8;
             label1.Text = "Preparando";
+            label1.Click += label1_Click;
             // 
             // label2
             // 

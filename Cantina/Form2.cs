@@ -25,7 +25,7 @@ namespace Cantina
                 return;
             }
 
-            var pedidoSelecionado = pedidos.SelectedItem as Pedido;
+            Pedido pedidoSelecionado = (Pedido)pedidos.SelectedItem;
 
             if (historico.Items.Count == 5)
             {
@@ -35,8 +35,11 @@ namespace Cantina
             pedidoSelecionado.Status = Status.ENTREGUE;
             historico.Items.Insert(0, pedidoSelecionado);
             pedidos.Items.Remove(pedidoSelecionado);
-            TelaNome telaNome = new TelaNome();  
+
+            TelaNome telaNome = new TelaNome();
+            telaNome.chamada(pedidoSelecionado.Cliente);
             telaNome.ShowDialog();
+            
         }
 
         private void historico_SelectedIndexChanged(object sender, EventArgs e)
